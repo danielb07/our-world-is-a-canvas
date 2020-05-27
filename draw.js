@@ -3,6 +3,7 @@ class Pencil {
         this.path = [];
         this.x1;
         this.y1;
+        
 
     }
        
@@ -14,20 +15,25 @@ class Pencil {
                 stroke: this.path
             });
         }
+        
     }
 
     penUp(){
+       artWork.push(this.path)
         this.path = [];
         this.x1 = undefined;
         this.y1 = undefined;
+        
        
     }
     dot(){
         var position = [mouseX,mouseY]
+        dotWork.push(position);
         database.ref('/').update({
             dot: position
         })
     }
-       
+    
+    
     }
 

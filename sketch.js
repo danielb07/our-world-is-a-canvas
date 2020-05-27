@@ -1,12 +1,15 @@
-var pencil;
+var pencil, reset;
 var save;
 var database;
 var drawWatch;
-
+var artWork = [];
+var dotWork = [];
 function setup(){
     database = firebase.database();
     createCanvas(displayWidth,displayHeight)
     pencil = new Pencil();
+    reset = new Reset();
+
     var strokeRef = database.ref('stroke');
     strokeRef.on("value", drawShape);
 
@@ -16,6 +19,7 @@ function setup(){
 
 function draw(){
     frameRate(120);
+    reset.display();
 }
 
 mouseDragged = () =>{
@@ -28,6 +32,8 @@ function mouseReleased(){
 }
 mousePressed = () =>{
     pencil.dot();
+    dotWork.push()
+    
 }
 
 drawShape = (data) =>{
